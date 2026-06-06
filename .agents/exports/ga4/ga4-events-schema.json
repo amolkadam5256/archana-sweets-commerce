@@ -1,0 +1,83 @@
+{
+  "measurement_id": "G-30C78ZK2G8",
+  "events": [
+    {
+      "name": "page_view",
+      "required_params": [
+        "page_path",
+        "page_group",
+        "page_location"
+      ],
+      "conversion": false
+    },
+    {
+      "name": "generate_lead",
+      "required_params": [
+        "event_id",
+        "form_type",
+        "lead_type"
+      ],
+      "conversion": true
+    },
+    {
+      "name": "form_submit",
+      "required_params": [
+        "event_id",
+        "form_type"
+      ],
+      "conversion": true
+    },
+    {
+      "name": "contact",
+      "required_params": [
+        "event_id",
+        "channel"
+      ],
+      "conversion": true
+    },
+    {
+      "name": "search",
+      "required_params": [
+        "search_term"
+      ],
+      "conversion": false
+    },
+    {
+      "name": "video_progress",
+      "required_params": [
+        "video_provider",
+        "video_title",
+        "video_percent"
+      ],
+      "conversion": false
+    },
+    {
+      "name": "scroll",
+      "required_params": [
+        "percent_scrolled"
+      ],
+      "conversion": false
+    },
+    {
+      "name": "click",
+      "required_params": [
+        "click_text",
+        "click_url"
+      ],
+      "conversion": false
+    },
+    {
+      "name": "view_item",
+      "required_params": [
+        "item_name",
+        "item_category"
+      ],
+      "conversion": false
+    },
+    {
+      "name": "session_start",
+      "required_params": [],
+      "conversion": false
+    }
+  ]
+}

@@ -1,26 +1,336 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Rich Maroon Palette */
+  --color-maroon-50: #fdf2f4;
+  --color-maroon-100: #fce7e9;
+  --color-maroon-200: #f8d3d9;
+  --color-maroon-300: #f2b0bb;
+  --color-maroon-400: #e88094;
+  --color-maroon-500: #d6516f;
+  --color-maroon-600: #bc3558;
+  --color-maroon-700: #8b1e3f;
+  --color-maroon-800: #7f1d3a;
+  --color-maroon-900: #6d1c35;
+  --color-maroon-950: #3c0a18;
+
+  /* Traditional Gold Palette */
+  --color-gold-50: #fbf9f0;
+  --color-gold-100: #f5f0d6;
+  --color-gold-200: #ebe0b0;
+  --color-gold-300: #deca81;
+  --color-gold-400: #d0b056;
+  --color-gold-500: #c2953a;
+  --color-gold-600: #b2812f;
+  --color-gold-700: #936428;
+  --color-gold-800: #785226;
+  --color-gold-900: #644421;
+  --color-gold-950: #3a2510;
+
+  /* Creamy Neutrals */
+  --color-cream-50: #fffdf9;
+  --color-cream-100: #fffaf0;
+  --color-cream-200: #fdf5e2;
+  --color-cream-300: #f9e8c4;
+  --color-cream-400: #f3d49b;
+  --color-cream-500: #eab66b;
+
+  --font-primary: "Outfit", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
-@media (prefers-color-scheme: dark) {
+  /* ============================================================
+     DESIGN TOKENS — Light Mode
+     Regular text = near-black. Brand colours for branded elements only.
+     ============================================================ */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Backgrounds */
+    --bg-base:        #ffffff;
+    --bg-surface:     #ffffff;
+    --bg-subtle:      #f9f9f9;
+    --bg-muted:       #f3f3f3;
+
+    /* Text — black-based */
+    --text-primary:   #111111;   /* near-black for all body copy */
+    --text-secondary: #444444;   /* secondary / subheadings */
+    --text-muted:     #777777;   /* captions, meta */
+    --text-faint:     #aaaaaa;   /* placeholders, disabled */
+
+    /* Borders */
+    --border-base:    #e5e5e5;
+    --border-muted:   #d0d0d0;
+
+    /* Header */
+    --header-bg:      #ffffff;
+    --header-border:  #eeeeee;
+    --topbar-bg:      #3c0a18;   /* maroon — brand area stays branded */
+
+    /* Cards */
+    --card-bg:        #ffffff;
+    --card-border:    #e8e8e8;
+
+    /* Inputs */
+    --input-bg:       #ffffff;
+    --input-border:   #cccccc;
+    --input-text:     #111111;
+    --input-placeholder: #aaaaaa;
+
+    /* Footer — stays dark/branded in both modes */
+    --footer-bg:      #3c0a18;
+    --footer-text:    #fffaf0;
   }
+
+  /* ============================================================
+     DESIGN TOKENS — Dark Mode
+     Regular text = near-white. Brand colours for branded elements only.
+     ============================================================ */
+  [data-theme="dark"] {
+    /* Backgrounds */
+    --bg-base:        #121212;
+    --bg-surface:     #1e1e1e;
+    --bg-subtle:      #2a2a2a;
+    --bg-muted:       #333333;
+
+    /* Text — white-based */
+    --text-primary:   #f2f2f2;   /* near-white for all body copy */
+    --text-secondary: #bbbbbb;   /* secondary / subheadings */
+    --text-muted:     #888888;   /* captions, meta */
+    --text-faint:     #555555;   /* placeholders, disabled */
+
+    /* Borders */
+    --border-base:    #2e2e2e;
+    --border-muted:   #3d3d3d;
+
+    /* Header */
+    --header-bg:      #181818;
+    --header-border:  #2e2e2e;
+    --topbar-bg:      #0a0205;   /* very dark maroon */
+
+    /* Cards */
+    --card-bg:        #1e1e1e;
+    --card-border:    #2e2e2e;
+
+    /* Inputs */
+    --input-bg:       #1e1e1e;
+    --input-border:   #3d3d3d;
+    --input-text:     #f2f2f2;
+    --input-placeholder: #555555;
+
+    /* Footer — stays dark/branded */
+    --footer-bg:      #0a0205;
+    --footer-text:    #f2f2f2;
+  }
+
+  /* ============================================================
+     BASE STYLES
+     ============================================================ */
+  html {
+    color-scheme: light;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  [data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    @apply antialiased;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply font-bold;
+    /* headings inherit body text colour (black / white) */
+    color: var(--text-primary);
+  }
+
+  p, li, span, label, td, th {
+    color: inherit;
+  }
+
+  /* ============================================================
+     DARK MODE — Background overrides
+     ============================================================ */
+
+  /* White / light surfaces → dark surfaces */
+  [data-theme="dark"] .bg-white           { background-color: var(--bg-surface) !important; }
+  [data-theme="dark"] .bg-cream-50        { background-color: var(--bg-base)    !important; }
+  [data-theme="dark"] .bg-cream-100       { background-color: var(--bg-subtle)  !important; }
+  [data-theme="dark"] .bg-cream-200       { background-color: var(--bg-muted)   !important; }
+  [data-theme="dark"] .bg-white\/70       { background-color: rgba(30,30,30,0.7)  !important; }
+  [data-theme="dark"] .bg-white\/90       { background-color: rgba(24,24,24,0.92) !important; }
+
+  /* Maroon tinted hover areas → neutral dark */
+  [data-theme="dark"] .bg-maroon-50       { background-color: #252525 !important; }
+  [data-theme="dark"] .bg-maroon-50\/50   { background-color: rgba(37,37,37,0.5) !important; }
+  [data-theme="dark"] .bg-maroon-100      { background-color: #2e2e2e !important; }
+  [data-theme="dark"] .bg-maroon-900\/40  { background-color: rgba(30,10,18,0.5) !important; }
+  [data-theme="dark"] .bg-maroon-900\/50  { background-color: rgba(30,10,18,0.6) !important; }
+
+  /* Header / nav */
+  [data-theme="dark"] header.sticky       {
+    background-color: var(--header-bg)     !important;
+    border-color:     var(--header-border) !important;
+  }
+
+  /* Mobile bottom nav blur bar */
+  [data-theme="dark"] .backdrop-blur-lg {
+    background-color: rgba(24,24,24,0.92) !important;
+    border-color:     var(--border-base)   !important;
+  }
+
+  /* ============================================================
+     DARK MODE — Text overrides
+     All maroon-X text → near-white neutral text except branded elements
+     ============================================================ */
+  [data-theme="dark"] .text-maroon-950,
+  [data-theme="dark"] .text-maroon-900,
+  [data-theme="dark"] .text-maroon-800    { color: var(--text-primary)   !important; }
+
+  [data-theme="dark"] .text-maroon-700    { color: var(--text-secondary) !important; }
+
+  [data-theme="dark"] .text-maroon-500,
+  [data-theme="dark"] .text-maroon-400,
+  [data-theme="dark"] .text-maroon-300    { color: var(--text-muted)     !important; }
+
+  [data-theme="dark"] .text-maroon-900\/70 { color: rgba(242,242,242,0.7)  !important; }
+  [data-theme="dark"] .text-maroon-900\/50 { color: rgba(242,242,242,0.5)  !important; }
+
+  /* Cream text (used in footer — keep as-is, footer stays branded) */
+  /* gold text stays gold — it's always a brand accent */
+
+  /* ============================================================
+     DARK MODE — Border overrides
+     ============================================================ */
+  [data-theme="dark"] .border-cream-200   { border-color: var(--border-base)  !important; }
+  [data-theme="dark"] .border-cream-100   { border-color: var(--border-muted) !important; }
+  [data-theme="dark"] .border-maroon-100  { border-color: var(--border-base)  !important; }
+  [data-theme="dark"] .border-maroon-200  { border-color: var(--border-muted) !important; }
+
+  /* ============================================================
+     DARK MODE — Hover overrides
+     ============================================================ */
+  [data-theme="dark"] .hover\:bg-maroon-50:hover  { background-color: #252525 !important; }
+  [data-theme="dark"] .hover\:bg-maroon-100:hover { background-color: #2e2e2e !important; }
+  [data-theme="dark"] .hover\:text-maroon-700:hover     { color: var(--text-primary) !important; }
+  [data-theme="dark"] .hover\:border-maroon-100:hover   { border-color: var(--border-base)  !important; }
+  [data-theme="dark"] .hover\:border-maroon-200:hover   { border-color: var(--border-muted) !important; }
+
+  /* ============================================================
+     DARK MODE — Input overrides
+     ============================================================ */
+  [data-theme="dark"] input,
+  [data-theme="dark"] textarea,
+  [data-theme="dark"] select {
+    background-color: var(--input-bg)     !important;
+    border-color:     var(--input-border) !important;
+    color:            var(--input-text)   !important;
+  }
+
+  [data-theme="dark"] input::placeholder,
+  [data-theme="dark"] textarea::placeholder {
+    color: var(--input-placeholder) !important;
+  }
+
+  /* ============================================================
+     DARK MODE — Dropdown menus
+     ============================================================ */
+  [data-theme="dark"] .shadow-xl {
+    box-shadow: 0 20px 60px -10px rgba(0,0,0,0.7), 0 4px 16px rgba(0,0,0,0.4) !important;
+  }
+
+  /* ============================================================
+     DARK MODE — Scrollbar
+     ============================================================ */
+  [data-theme="dark"] ::-webkit-scrollbar         { width: 6px; }
+  [data-theme="dark"] ::-webkit-scrollbar-track   { background: #121212; }
+  [data-theme="dark"] ::-webkit-scrollbar-thumb   { background: #333; border-radius: 3px; }
+  [data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: #555; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-custom {
+    @apply max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 xl:px-12;
+  }
+
+  /* ——— Buttons ——— */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-10 py-5 bg-maroon-700 text-white text-[11px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-maroon-800 transition-all duration-500 shadow-xl shadow-maroon-900/10 hover:shadow-maroon-900/20 active:scale-95;
+  }
+
+  .btn-primary-sm {
+    @apply inline-flex items-center justify-center px-6 py-2.5 bg-maroon-700 text-white text-[10px] font-black uppercase tracking-[0.15em] rounded-full hover:bg-maroon-800 transition-all duration-300 active:scale-95 shadow-lg shadow-maroon-900/5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-10 py-5 border-2 border-maroon-100 text-maroon-900 text-[11px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-maroon-50 hover:border-maroon-200 transition-all duration-500 active:scale-95;
+  }
+
+  [data-theme="dark"] .btn-outline {
+    border-color: var(--border-muted);
+    color: var(--text-primary);
+  }
+
+  [data-theme="dark"] .btn-outline:hover {
+    background-color: var(--bg-subtle);
+    border-color: var(--border-muted);
+  }
+
+  /* ——— Glass ——— */
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+
+  [data-theme="dark"] .glass {
+    background-color: rgba(30,30,30,0.7);
+    border-color: rgba(60,60,60,0.3);
+  }
+
+  /* ——— Brand text gradient (gold) ——— */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-gold-400 via-gold-600 to-gold-700;
+  }
+
+  /* ——— Utility shadows ——— */
+  .shadow-premium {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  }
+
+  [data-theme="dark"] .shadow-premium {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+
+  /* ——— Divider ——— */
+  .divider-gold {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gold-300/30 to-transparent my-4;
+  }
+
+  /* ——— Page / section backgrounds ——— */
+  [data-theme="dark"] section,
+  [data-theme="dark"] article,
+  [data-theme="dark"] aside {
+    background-color: transparent;
+  }
+
+  [data-theme="dark"] .min-h-screen {
+    background-color: var(--bg-base);
+  }
+
+  /* ——— Card elements ——— */
+  [data-theme="dark"] .card,
+  [data-theme="dark"] [class*="card-"] {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+  }
 }

@@ -1,0 +1,2086 @@
+﻿{
+    "exportFormatVersion":  2,
+    "exportTime":  "2026-05-28 00:00:00",
+    "containerVersion":  {
+                             "path":  "accounts/0/containers/0/versions/0",
+                             "accountId":  "0",
+                             "containerId":  "0",
+                             "name":  "Growthik Media Recommended Analytics Container",
+                             "container":  {
+                                               "accountId":  "0",
+                                               "containerId":  "0",
+                                               "name":  "Growthik Media Recommended Analytics Container",
+                                               "publicId":  "GTM-PBHC6WLL",
+                                               "usageContext":  [
+                                                                    "WEB"
+                                                                ]
+                                           },
+                             "builtInVariable":  [
+                                                     {
+                                                         "type":  "PAGE_URL",
+                                                         "name":  "Page Url"
+                                                     },
+                                                     {
+                                                         "type":  "PAGE_PATH",
+                                                         "name":  "Page Path"
+                                                     },
+                                                     {
+                                                         "type":  "PAGE_HOSTNAME",
+                                                         "name":  "Page Hostname"
+                                                     },
+                                                     {
+                                                         "type":  "REFERRER",
+                                                         "name":  "Referrer"
+                                                     },
+                                                     {
+                                                         "type":  "CLICK_ELEMENT",
+                                                         "name":  "Click Element"
+                                                     },
+                                                     {
+                                                         "type":  "CLICK_CLASSES",
+                                                         "name":  "Click Classes"
+                                                     },
+                                                     {
+                                                         "type":  "CLICK_ID",
+                                                         "name":  "Click Id"
+                                                     },
+                                                     {
+                                                         "type":  "CLICK_TEXT",
+                                                         "name":  "Click Text"
+                                                     },
+                                                     {
+                                                         "type":  "CLICK_URL",
+                                                         "name":  "Click Url"
+                                                     },
+                                                     {
+                                                         "type":  "FORM_ELEMENT",
+                                                         "name":  "Form Element"
+                                                     },
+                                                     {
+                                                         "type":  "FORM_ID",
+                                                         "name":  "Form Id"
+                                                     },
+                                                     {
+                                                         "type":  "FORM_CLASSES",
+                                                         "name":  "Form Classes"
+                                                     },
+                                                     {
+                                                         "type":  "SCROLL_DEPTH_THRESHOLD",
+                                                         "name":  "Scroll Depth Threshold"
+                                                     },
+                                                     {
+                                                         "type":  "VIDEO_PROVIDER",
+                                                         "name":  "Video Provider"
+                                                     },
+                                                     {
+                                                         "type":  "VIDEO_STATUS",
+                                                         "name":  "Video Status"
+                                                     },
+                                                     {
+                                                         "type":  "VIDEO_PERCENT",
+                                                         "name":  "Video Percent"
+                                                     },
+                                                     {
+                                                         "type":  "ERROR_MESSAGE",
+                                                         "name":  "Error Message"
+                                                     },
+                                                     {
+                                                         "type":  "ERROR_URL",
+                                                         "name":  "Error Url"
+                                                     },
+                                                     {
+                                                         "type":  "ERROR_LINE",
+                                                         "name":  "Error Line"
+                                                     }
+                                                 ],
+                             "variable":  [
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "100",
+                                                  "name":  "CONST - GA4 Measurement ID",
+                                                  "type":  "c",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "value",
+                                                                        "value":  "G-30C78ZK2G8"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "101",
+                                                  "name":  "CONST - Meta Pixel ID",
+                                                  "type":  "c",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "value",
+                                                                        "value":  "911738005183270"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "102",
+                                                  "name":  "CONST - Google Ads ID",
+                                                  "type":  "c",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "value",
+                                                                        "value":  "AW-0"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "103",
+                                                  "name":  "DLV - event_id",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "event_id"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "104",
+                                                  "name":  "DLV - page_location",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "page_location"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "105",
+                                                  "name":  "DLV - page_path",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "page_path"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "106",
+                                                  "name":  "DLV - page_title",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "page_title"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "107",
+                                                  "name":  "DLV - page_group",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "page_group"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "108",
+                                                  "name":  "DLV - referrer_source",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "referrer_source"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "109",
+                                                  "name":  "DLV - ai_referral",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "ai_referral"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "110",
+                                                  "name":  "DLV - form_id",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "form_id"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "111",
+                                                  "name":  "DLV - form_name",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "form_name"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "112",
+                                                  "name":  "DLV - form_type",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "form_type"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "113",
+                                                  "name":  "DLV - form_location",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "form_location"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "114",
+                                                  "name":  "DLV - lead_type",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "lead_type"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "115",
+                                                  "name":  "DLV - content_name",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "content_name"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "116",
+                                                  "name":  "DLV - content_category",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "content_category"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "117",
+                                                  "name":  "DLV - content_type",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "content_type"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "118",
+                                                  "name":  "DLV - cta_text",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "cta_text"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "119",
+                                                  "name":  "DLV - destination",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "destination"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "120",
+                                                  "name":  "DLV - channel",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "channel"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "121",
+                                                  "name":  "DLV - service",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "service"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "122",
+                                                  "name":  "DLV - goal",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "goal"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "123",
+                                                  "name":  "DLV - intent_action",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "intent_action"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "124",
+                                                  "name":  "DLV - percent_scrolled",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "percent_scrolled"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "125",
+                                                  "name":  "DLV - search_term",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "search_term"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "126",
+                                                  "name":  "DLV - search_string",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "search_string"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "127",
+                                                  "name":  "DLV - result_count",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "result_count"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "128",
+                                                  "name":  "DLV - filter_type",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "filter_type"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "129",
+                                                  "name":  "DLV - filter_value",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "filter_value"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "130",
+                                                  "name":  "DLV - platform",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "platform"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "131",
+                                                  "name":  "DLV - video_provider",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "video_provider"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "132",
+                                                  "name":  "DLV - video_title",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "video_title"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "133",
+                                                  "name":  "DLV - video_status",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "video_status"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "134",
+                                                  "name":  "DLV - video_percent",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "video_percent"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "135",
+                                                  "name":  "DLV - error_type",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "error_type"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "136",
+                                                  "name":  "DLV - error_message",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "error_message"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "137",
+                                                  "name":  "DLV - endpoint",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "endpoint"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "138",
+                                                  "name":  "DLV - status_code",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "status_code"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "139",
+                                                  "name":  "DLV - value",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "value"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "140",
+                                                  "name":  "DLV - currency",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "currency"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "141",
+                                                  "name":  "DLV - method",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "method"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "142",
+                                                  "name":  "DLV - first_landing_page",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "first_landing_page"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "143",
+                                                  "name":  "DLV - first_referrer",
+                                                  "type":  "v",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "first_referrer"
+                                                                    },
+                                                                    {
+                                                                        "type":  "INTEGER",
+                                                                        "key":  "dataLayerVersion",
+                                                                        "value":  "2"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "144",
+                                                  "name":  "URL - utm_source",
+                                                  "type":  "u",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "component",
+                                                                        "value":  "QUERY"
+                                                                    },
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "queryKey",
+                                                                        "value":  "utm_source"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "145",
+                                                  "name":  "URL - utm_medium",
+                                                  "type":  "u",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "component",
+                                                                        "value":  "QUERY"
+                                                                    },
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "queryKey",
+                                                                        "value":  "utm_medium"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "146",
+                                                  "name":  "URL - utm_campaign",
+                                                  "type":  "u",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "component",
+                                                                        "value":  "QUERY"
+                                                                    },
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "queryKey",
+                                                                        "value":  "utm_campaign"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "147",
+                                                  "name":  "URL - utm_content",
+                                                  "type":  "u",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "component",
+                                                                        "value":  "QUERY"
+                                                                    },
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "queryKey",
+                                                                        "value":  "utm_content"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "148",
+                                                  "name":  "URL - utm_term",
+                                                  "type":  "u",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "component",
+                                                                        "value":  "QUERY"
+                                                                    },
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "queryKey",
+                                                                        "value":  "utm_term"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "149",
+                                                  "name":  "URL - gclid",
+                                                  "type":  "u",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "component",
+                                                                        "value":  "QUERY"
+                                                                    },
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "queryKey",
+                                                                        "value":  "gclid"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "150",
+                                                  "name":  "URL - fbclid",
+                                                  "type":  "u",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "component",
+                                                                        "value":  "QUERY"
+                                                                    },
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "queryKey",
+                                                                        "value":  "fbclid"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "151",
+                                                  "name":  "Cookie - _fbp",
+                                                  "type":  "k",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "_fbp"
+                                                                    }
+                                                                ]
+                                              },
+                                              {
+                                                  "accountId":  "0",
+                                                  "containerId":  "0",
+                                                  "variableId":  "152",
+                                                  "name":  "Cookie - _fbc",
+                                                  "type":  "k",
+                                                  "parameter":  [
+                                                                    {
+                                                                        "type":  "TEMPLATE",
+                                                                        "key":  "name",
+                                                                        "value":  "_fbc"
+                                                                    }
+                                                                ]
+                                              }
+                                          ],
+                             "trigger":  [
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "153",
+                                                 "name":  "PV - All Pages",
+                                                 "type":  "PAGEVIEW"
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "154",
+                                                 "name":  "DOM - All Pages",
+                                                 "type":  "DOM_READY"
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "155",
+                                                 "name":  "HIST - SPA Route Change",
+                                                 "type":  "HISTORY_CHANGE"
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "156",
+                                                 "name":  "EV - page_view",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "page_view"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "157",
+                                                 "name":  "EV - form_start",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "form_start"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "158",
+                                                 "name":  "EV - form_submit_success",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "form_submit_success"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "159",
+                                                 "name":  "EV - form_submit_error",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "form_submit_error"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "160",
+                                                 "name":  "EV - cta_click",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "cta_click"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "161",
+                                                 "name":  "EV - whatsapp_click",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "whatsapp_click"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "162",
+                                                 "name":  "EV - phone_call",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "phone_call"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "163",
+                                                 "name":  "EV - contact_click",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "contact_click"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "164",
+                                                 "name":  "EV - scroll_depth",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "scroll_depth"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "165",
+                                                 "name":  "SCR - 10/25/50/75/90/100",
+                                                 "type":  "SCROLL_DEPTH"
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "166",
+                                                 "name":  "EV - internal_search",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "internal_search"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "167",
+                                                 "name":  "EV - filter_apply",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "filter_apply"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "168",
+                                                 "name":  "EV - share_click",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "share_click"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "169",
+                                                 "name":  "EV - chat_open",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "chat_open"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "170",
+                                                 "name":  "EV - chat_message_sent",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "chat_message_sent"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "171",
+                                                 "name":  "EV - video_events",
+                                                 "type":  "CUSTOM_EVENT",
+                                                 "customEventFilter":  [
+                                                                           {
+                                                                               "type":  "EQUALS",
+                                                                               "parameter":  [
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg0",
+                                                                                                     "value":  "{{_event}}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "type":  "TEMPLATE",
+                                                                                                     "key":  "arg1",
+                                                                                                     "value":  "video_events"
+                                                                                                 }
+                                                                                             ]
+                                                                           }
+                                                                       ]
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "172",
+                                                 "name":  "LNK - WhatsApp",
+                                                 "type":  "LINK_CLICK"
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "173",
+                                                 "name":  "LNK - Phone",
+                                                 "type":  "LINK_CLICK"
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "174",
+                                                 "name":  "LNK - Email",
+                                                 "type":  "LINK_CLICK"
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "175",
+                                                 "name":  "ERR - JavaScript",
+                                                 "type":  "JS_ERROR"
+                                             },
+                                             {
+                                                 "accountId":  "0",
+                                                 "containerId":  "0",
+                                                 "triggerId":  "176",
+                                                 "name":  "TMR - 30s Engagement",
+                                                 "type":  "TIMER"
+                                             }
+                                         ],
+                             "tag":  [
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "177",
+                                             "name":  "CONSENT - Default Denied",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "153"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "178",
+                                             "name":  "GA4 - Config",
+                                             "type":  "gaawc",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementId",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "BOOLEAN",
+                                                                   "key":  "sendPageView",
+                                                                   "value":  "false"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "153"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "179",
+                                             "name":  "GA4 - Event - page_view",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "page_view"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "156"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "180",
+                                             "name":  "GA4 - Event - generate_lead",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "generate_lead"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "158"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "181",
+                                             "name":  "GA4 - Event - form_start",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "form_start"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "157"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "182",
+                                             "name":  "GA4 - Event - form_submit_error",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "form_submit_error"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "159"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "183",
+                                             "name":  "GA4 - Event - cta_click",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "cta_click"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "160"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "184",
+                                             "name":  "GA4 - Event - contact_click",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "contact_click"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "163"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "185",
+                                             "name":  "GA4 - Event - whatsapp_click",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "whatsapp_click"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "161"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "186",
+                                             "name":  "GA4 - Event - phone_call",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "phone_call"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "162"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "187",
+                                             "name":  "GA4 - Event - scroll_depth",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "scroll_depth"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "164"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "188",
+                                             "name":  "GA4 - Event - internal_search",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "internal_search"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "166"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "189",
+                                             "name":  "GA4 - Event - filter_apply",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "filter_apply"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "167"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "190",
+                                             "name":  "GA4 - Event - share_click",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "share_click"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "168"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "191",
+                                             "name":  "GA4 - Event - chat_open",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "chat_open"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "169"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "192",
+                                             "name":  "GA4 - Event - chat_message_sent",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "chat_message_sent"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "170"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "193",
+                                             "name":  "GA4 - Event - video",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "video"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "171"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "194",
+                                             "name":  "GA4 - Event - exception",
+                                             "type":  "gaawe",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "measurementIdOverride",
+                                                                   "value":  "{{CONST - GA4 Measurement ID}}"
+                                                               },
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "eventName",
+                                                                   "value":  "exception"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "175"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "195",
+                                             "name":  "META - Base Pixel - Optional GTM Owner",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "153"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "196",
+                                             "name":  "META - Event - Lead - Requires event_id",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "158"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "197",
+                                             "name":  "META - Event - Contact - WhatsApp",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "161"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "198",
+                                             "name":  "META - Event - Contact - Phone",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "162"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "199",
+                                             "name":  "ADS - Conversion - Lead - Replace IDs",
+                                             "type":  "awct",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "conversionId",
+                                                                   "value":  "0"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "158"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "200",
+                                             "name":  "ADS - Conversion - WhatsApp - Replace IDs",
+                                             "type":  "awct",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "conversionId",
+                                                                   "value":  "0"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "161"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "201",
+                                             "name":  "ADS - Conversion - Phone - Replace IDs",
+                                             "type":  "awct",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "conversionId",
+                                                                   "value":  "0"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "162"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "202",
+                                             "name":  "UTIL - Attribution Cookie Writer",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "153"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "203",
+                                             "name":  "CLARITY - Base - Optional",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "153"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "204",
+                                             "name":  "HOTJAR - Base - Optional",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "153"
+                                                                 ]
+                                         },
+                                         {
+                                             "accountId":  "0",
+                                             "containerId":  "0",
+                                             "tagId":  "205",
+                                             "name":  "LINKEDIN - Insight - Optional",
+                                             "type":  "html",
+                                             "parameter":  [
+                                                               {
+                                                                   "type":  "TEMPLATE",
+                                                                   "key":  "html",
+                                                                   "value":  "\u003c!-- Configure in GTM before publishing. --\u003e"
+                                                               }
+                                                           ],
+                                             "firingTriggerId":  [
+                                                                     "153"
+                                                                 ]
+                                         }
+                                     ]
+                         }
+}

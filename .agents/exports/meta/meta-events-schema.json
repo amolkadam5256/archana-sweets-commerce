@@ -1,0 +1,12 @@
+{
+  "pixel_id": "911738005183270",
+  "events": [
+    { "canonical_event": "page_view", "meta_event": "PageView", "required_params": ["event_id", "page_location"] },
+    { "canonical_event": "view_content", "meta_event": "ViewContent", "required_params": ["event_id", "content_name", "content_category"] },
+    { "canonical_event": "form_submit_success", "meta_event": "Lead", "required_params": ["event_id", "content_name", "form_type"] },
+    { "canonical_event": "contact_click", "meta_event": "Contact", "required_params": ["event_id", "channel"] },
+    { "canonical_event": "complete_registration", "meta_event": "CompleteRegistration", "required_params": ["event_id", "content_name", "status"] },
+    { "canonical_event": "begin_checkout", "meta_event": "InitiateCheckout", "required_params": ["event_id", "content_name"] }
+  ]
+}
+
