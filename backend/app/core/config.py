@@ -44,6 +44,9 @@ class Settings(BaseSettings):
     AWS_SECRET_ACCESS_KEY: str = ""
     AWS_REGION: str = "ap-south-1"
     AWS_S3_BUCKET: str = "archanasweets-media"
+    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: str = ""
+    CLOUDINARY_API_KEY: str = ""
+    CLOUDINARY_API_SECRET: str = ""
 
     # ── Razorpay ─────────────────────────────────────────────
     RAZORPAY_KEY_ID: str = ""

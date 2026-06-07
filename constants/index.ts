@@ -94,15 +94,15 @@ export const ACCOUNT_LINKS = [
 
 // Product Categories
 export const PRODUCT_CATEGORIES = [
-  { id: "kaju-sweets", name: "Kaju Sweets", slug: "kaju-sweets", emoji: "🥜" },
-  { id: "milk-sweets", name: "Milk Sweets", slug: "milk-sweets", emoji: "🥛" },
-  { id: "dry-fruit", name: "Dry Fruit Sweets", slug: "dry-fruit-sweets", emoji: "🥭" },
-  { id: "laddu", name: "Laddu", slug: "laddu", emoji: "🟡" },
-  { id: "barfi", name: "Barfi", slug: "barfi", emoji: "🍫" },
-  { id: "peda", name: "Peda", slug: "peda", emoji: "🥣" },
-  { id: "bengali", name: "Bengali Sweets", slug: "bengali-sweets", emoji: "🍡" },
-  { id: "halwa", name: "Halwa", slug: "halwa", emoji: "🍯" },
-  { id: "gift-boxes", name: "Gift Boxes", slug: "gift-boxes", emoji: "🎁" },
+  { id: "kaju-sweets", name: "Kaju Sweets", slug: "kaju-sweets" },
+  { id: "milk-sweets", name: "Milk Sweets", slug: "milk-sweets" },
+  { id: "dry-fruit", name: "Dry Fruit Sweets", slug: "dry-fruit-sweets" },
+  { id: "laddu", name: "Laddu", slug: "laddu" },
+  { id: "barfi", name: "Barfi", slug: "barfi" },
+  { id: "peda", name: "Peda", slug: "peda" },
+  { id: "bengali", name: "Bengali Sweets", slug: "bengali-sweets" },
+  { id: "halwa", name: "Halwa", slug: "halwa" },
+  { id: "gift-boxes", name: "Gift Boxes", slug: "gift-boxes" },
 ] as const;
 
 // Order Status Labels

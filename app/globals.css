@@ -134,6 +134,8 @@
   html {
     color-scheme: light;
     transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+    min-width: 100%;
   }
 
   [data-theme="dark"] {
@@ -146,6 +148,8 @@
     font-family: var(--font-primary);
     @apply antialiased;
     transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+    min-width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Mail } from "lucide-react";
+import toast from "react-hot-toast";
 
 export function NewsletterSection() {
   const [email, setEmail] = useState("");
@@ -13,10 +14,26 @@ export function NewsletterSection() {
     e.preventDefault();
     if (!email.trim()) return;
     setIsLoading(true);
-    // TODO: Connect to newsletter API
-    await new Promise((r) => setTimeout(r, 1000));
-    setIsLoading(false);
-    setIsSubmitted(true);
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null);
+        throw new Error(result?.message || "Unable to subscribe");
+      }
+
+      setIsSubmitted(true);
+      toast.success("Subscribed to festival offers");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Unable to subscribe");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -45,7 +62,7 @@ export function NewsletterSection() {
               animate={{ opacity: 1, scale: 1 }}
               className="inline-flex items-center gap-3 px-8 py-4 bg-green-50 border border-green-200 rounded-full text-green-700 font-semibold"
             >
-              <Check size={18} /> You&apos;re subscribed! Welcome to the Archana Sweets family. 🎉
+              <Check size={18} /> You are subscribed. Welcome to the Archana Sweets family.
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
@@ -72,7 +89,7 @@ export function NewsletterSection() {
           )}
 
           <p className="text-cream-600 text-xs mt-4">
-            🔒 No spam. Unsubscribe anytime. By subscribing, you agree to our Privacy Policy.
+            No spam. Unsubscribe anytime. By subscribing, you agree to our Privacy Policy.
           </p>
         </motion.div>
       </div>

@@ -5,6 +5,7 @@ export const appConfig = {
   tagline: process.env.NEXT_PUBLIC_APP_TAGLINE || "Made With Mother's Love",
   apiUrl: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1",
   googleClientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "",
+  googleMapsKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || "",
   razorpayKeyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "",
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919876543210",

@@ -1,0 +1,301 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  phone         String?
+  password      String?
+  role          UserRole  @default(customer)
+  emailVerified DateTime?
+  phoneVerified DateTime?
+  avatar        String?
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  addresses     Address[]
+  orders        Order[]
+  reviews       Review[]
+  cart          CartItem[]
+  wishlist      WishlistItem[]
+
+  @@map("users")
+}
+
+model Address {
+  id            String   @id @default(uuid())
+  userId        String
+  type          AddressType @default(home)
+  name          String
+  phone         String
+  addressLine1  String
+  addressLine2  String?
+  city          String
+  state         String
+  pincode       String
+  isDefault     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  user          User     @relation(fields: [userId], references: [id])
+
+  @@map("addresses")
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String
+  slug        String    @unique
+  description String?
+  image       String?
+  isActive    Boolean   @default(true)
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+
+  products    Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id              String    @id @default(uuid())
+  name            String
+  slug            String    @unique
+  description     String
+  shortDescription String?
+  price           Decimal
+  salePrice       Decimal?
+  stock           Int       @default(0)
+  sku             String?   @unique
+  weight          Decimal?
+  weightUnit      WeightUnit @default(g)
+  categoryId      String
+  isFeatured      Boolean   @default(false)
+  isBestSeller    Boolean   @default(false)
+  isNew           Boolean   @default(false)
+  isActive        Boolean   @default(true)
+  rating          Decimal   @default(0)
+  reviewCount     Int       @default(0)
+  shelfLife       String?
+  ingredients     String?
+  allergens       String?
+  metaTitle       String?
+  metaDescription String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  category      Category       @relation(fields: [categoryId], references: [id])
+  images        ProductImage[]
+  reviews       Review[]
+  variants      ProductVariant[]
+  cartItems     CartItem[]
+  wishlistItems WishlistItem[]
+  orderItems    OrderItem[]
+
+  @@map("products")
+}
+
+model ProductImage {
+  id         String  @id @default(uuid())
+  productId  String
+  url        String
+  altText    String?
+  isPrimary  Boolean @default(false)
+  sortOrder  Int     @default(0)
+
+  product    Product @relation(fields: [productId], references: [id])
+
+  @@map("product_images")
+}
+
+model ProductVariant {
+  id            String  @id @default(uuid())
+  productId     String
+  weight        Decimal
+  unit          WeightUnit @default(g)
+  price         Decimal
+  originalPrice Decimal?
+  stock         Int      @default(0)
+  sku           String?
+  isDefault     Boolean  @default(false)
+
+  product       Product @relation(fields: [productId], references: [id])
+
+  @@map("product_variants")
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  userId     String
+  productId  String
+  rating     Int
+  title      String?
+  comment    String
+  isVerifiedPurchase Boolean @default(false)
+  helpfulCount Int     @default(0)
+  createdAt  DateTime @default(now())
+
+  user       User     @relation(fields: [userId], references: [id])
+  product    Product  @relation(fields: [productId], references: [id])
+
+  @@map("reviews")
+}
+
+model CartItem {
+  id          String   @id @default(uuid())
+  userId      String
+  productId   String
+  variantId   String?
+  quantity    Int      @default(1)
+  price       Decimal
+  totalPrice  Decimal
+
+  user        User     @relation(fields: [userId], references: [id])
+  product     Product  @relation(fields: [productId], references: [id])
+
+  @@map("cart_items")
+}
+
+model WishlistItem {
+  id        String   @id @default(uuid())
+  userId    String
+  productId String
+  addedAt   DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+
+  @@unique([userId, productId])
+  @@map("wishlist_items")
+}
+
+model Order {
+  id              String        @id @default(uuid())
+  orderNumber     String        @unique
+  userId          String
+  status          OrderStatus   @default(pending)
+  paymentStatus   PaymentStatus @default(pending)
+  paymentMethod   PaymentMethod @default(cod)
+  subtotal        Decimal
+  discount        Decimal       @default(0)
+  deliveryFee     Decimal       @default(0)
+  total           Decimal
+  couponCode      String?
+  couponDiscount  Decimal?
+  razorpayOrderId  String?
+  razorpayPaymentId String?
+  notes           String?
+  estimatedDelivery DateTime?
+  deliveredAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  user    User        @relation(fields: [userId], references: [id])
+  items   OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id            String  @id @default(uuid())
+  orderId       String
+  productId     String
+  productName   String
+  productImage  String?
+  variantId     String?
+  variantLabel  String?
+  quantity      Int
+  price         Decimal
+  totalPrice    Decimal
+
+  order Order @relation(fields: [orderId], references: [id])
+
+  @@map("order_items")
+}
+
+model Banner {
+  id          String   @id @default(uuid())
+  title       String?
+  imageUrl    String
+  linkUrl     String?
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@map("banners")
+}
+
+model Coupon {
+  id            String    @id @default(uuid())
+  code          String    @unique
+  description   String?
+  discountType  DiscountType
+  discountValue Decimal
+  minOrderValue Decimal?
+  maxDiscount   Decimal?
+  startDate     DateTime
+  endDate       DateTime
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+
+  @@map("coupons")
+}
+
+enum UserRole {
+  customer
+  admin
+  manager
+}
+
+enum AddressType {
+  home
+  work
+  other
+}
+
+enum WeightUnit {
+  g
+  kg
+  piece
+  box
+  pack
+}
+
+enum OrderStatus {
+  pending
+  confirmed
+  processing
+  shipped
+  out_for_delivery
+  delivered
+  cancelled
+  refunded
+}
+
+enum PaymentStatus {
+  pending
+  paid
+  failed
+  refunded
+}
+
+enum PaymentMethod {
+  razorpay
+  upi
+  credit_card
+  debit_card
+  net_banking
+  cod
+}
+
+enum DiscountType {
+  percentage
+  fixed

@@ -147,4 +147,6 @@ class AuthService:
             "role": user.role,
             "isEmailVerified": user.is_email_verified,
             "isPhoneVerified": user.is_phone_verified,
+            "createdAt": user.created_at.isoformat() if user.created_at else None,
+            "updatedAt": user.updated_at.isoformat() if user.updated_at else None,
         }

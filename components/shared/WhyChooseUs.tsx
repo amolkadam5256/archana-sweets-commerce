@@ -78,20 +78,27 @@ export function WhyChooseUs() {
               key={reason.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group p-6 rounded-2xl border border-cream-200 hover:border-gold-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              whileHover={{ y: -8, scale: 1.02 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: i * 0.1, ease: "easeOut" }}
+              className="group p-6 rounded-2xl bg-white border border-cream-100 hover:border-gold-300 shadow-sm hover:shadow-xl transition-colors duration-300 relative overflow-hidden"
             >
-              <div className={`w-12 h-12 ${reason.bg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <reason.icon size={22} className={reason.color} />
-              </div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cream-50 to-white rounded-full -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <motion.div 
+                className={`w-14 h-14 ${reason.bg} rounded-xl flex items-center justify-center mb-5 relative z-10`}
+                whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <reason.icon size={26} className={reason.color} strokeWidth={1.5} />
+              </motion.div>
               <h3
-                className="text-maroon-800 font-bold mb-2 text-lg"
+                className="text-maroon-900 font-bold mb-2 text-lg relative z-10"
                 style={{ fontFamily: "var(--font-primary)" }}
               >
                 {reason.title}
               </h3>
-              <p className="text-cream-900 text-xs leading-relaxed">{reason.description}</p>
+              <p className="text-maroon-700/70 text-[13px] leading-relaxed relative z-10">{reason.description}</p>
             </motion.div>
           ))}
         </div>
@@ -101,7 +108,7 @@ export function WhyChooseUs() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
@@ -109,13 +116,26 @@ export function WhyChooseUs() {
             { value: "50+", label: "Sweet Varieties" },
             { value: "5★", label: "Average Rating" },
             { value: "3+", label: "Years of Love" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center p-6 bg-cream-50 rounded-2xl border border-cream-200">
-              <div className="text-gradient-gold font-primary font-bold text-3xl mb-1">
+          ].map((stat, i) => (
+            <motion.div 
+              key={stat.label} 
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.4 + (i * 0.1) }}
+              viewport={{ once: true }}
+              className="text-center p-6 bg-gradient-to-b from-white to-cream-50 rounded-2xl border border-cream-200 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 + (i * 0.1) }}
+                viewport={{ once: true }}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700 font-primary font-bold text-3xl sm:text-4xl mb-1 drop-shadow-sm"
+              >
                 {stat.value}
-              </div>
-              <div className="text-maroon-700 text-xs font-medium">{stat.label}</div>
-            </div>
+              </motion.div>
+              <div className="text-maroon-800 text-[11px] font-bold tracking-wider uppercase opacity-80">{stat.label}</div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

@@ -48,17 +48,14 @@ export function FeaturedCategories() {
           {PRODUCT_CATEGORIES.map((cat) => (
             <motion.div key={cat.id} variants={itemVariants}>
               <Link href={`/categories/${cat.slug}`} className="group block">
-                <div className="relative bg-cream-50 border border-cream-200 rounded-2xl p-6 text-center hover:border-gold-400 hover:bg-gold-50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                    {cat.emoji}
-                  </div>
+                <div className="relative bg-cream-50 border border-cream-200 rounded-2xl p-6 text-center hover:border-gold-400 hover:bg-gold-50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-center min-h-[140px]">
                   <h3
-                    className="text-maroon-800 font-semibold text-xs leading-tight group-hover:text-maroon-600 transition-colors"
+                    className="text-maroon-800 font-semibold text-sm leading-tight group-hover:text-maroon-600 transition-colors"
                     style={{ fontFamily: "var(--font-secondary)" }}
                   >
                     {cat.name}
                   </h3>
-                  <div className="h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mt-2 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                  <div className="h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mt-3 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                 </div>
               </Link>
             </motion.div>

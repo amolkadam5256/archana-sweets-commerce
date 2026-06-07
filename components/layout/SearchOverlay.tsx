@@ -93,7 +93,6 @@ export function SearchOverlay() {
                           className="flex items-center justify-between p-4 rounded-2xl bg-cream-50 hover:bg-gold-50 border border-cream-200 hover:border-gold-200 transition-all group"
                         >
                           <span className="flex items-center gap-3 font-semibold text-maroon-900 text-xs">
-                            <span className="text-xl">{cat.emoji}</span>
                             {cat.name}
                           </span>
                           <ArrowRight size={16} className="text-maroon-200 group-hover:text-gold-600 group-hover:translate-x-1 transition-all" />

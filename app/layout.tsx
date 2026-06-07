@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "@/providers";
 
 export const metadata: Metadata = {
+  // ... preserving metadata
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://archanasweets.com"),
   title: {
     default: "Archana Sweets - Made With Mother's Love | Pune's Premium Homemade Indian Sweets",
@@ -68,27 +69,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning data-theme="light">
-      <head>
-        {/* Anti-FOUC: Apply theme before paint to prevent flash */}
+      <body className="min-h-screen antialiased" suppressHydrationWarning>
+        {/* Anti-FOUC: Inline script runs synchronously before first paint */}
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var stored = localStorage.getItem('archana-theme');
-                  var theme = stored === 'dark' || stored === 'light' ? stored
-                    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                  document.documentElement.setAttribute('data-theme', theme);
-                  if (theme === 'dark') document.documentElement.classList.add('dark');
-                } catch(e) {}
-              })();
-            `,
+            __html: `(function(){try{var s=localStorage.getItem('archana-theme');var t=s==='dark'||s==='light'?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
           }}
         />
-      </head>
-      <body className="min-h-screen antialiased" suppressHydrationWarning>
         <Providers>{children}</Providers>
       </body>
     </html>
   );
 }
+
