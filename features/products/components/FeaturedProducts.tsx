@@ -13,6 +13,21 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import { addItem } from "@/features/cart/cart.slice";
 import { selectIsInWishlist, toggleWishlist } from "@/features/wishlist/wishlist.slice";
 import type { Product } from "@/types";
+import {
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  IconButton,
+  Chip,
+  Stack,
+  Typography,
+} from "@mui/material";
 
 const MOCK_PRODUCTS = [
   { id: "1", name: "Classic Besan Laddu", slug: "classic-besan-laddu", price: 380, originalPrice: 450, rating: 4.9, reviewCount: 234, weight: "500g", mark: "BL", isNew: false, isBestSeller: true, description: "Slow-roasted besan, pure ghee, cardamom, and a soft melt-in-mouth finish." },
@@ -108,26 +123,30 @@ function ProductCard({
   const handleAddToCart = () => {
     const cartProduct = productToCartProduct(product);
     const variant = cartProduct.variants[0];
-    dispatch(addItem({
-      id: `${product.id}-${variant.id}`,
-      productId: product.id,
-      product: cartProduct,
-      variantId: variant.id,
-      variant,
-      quantity: 1,
-      price: product.price,
-      totalPrice: product.price,
-    }));
+    dispatch(
+      addItem({
+        id: `${product.id}-${variant.id}`,
+        productId: product.id,
+        product: cartProduct,
+        variantId: variant.id,
+        variant,
+        quantity: 1,
+        price: product.price,
+        totalPrice: product.price,
+      })
+    );
     toast.success(`${product.name} added to basket`);
   };
 
   const handleWishlist = () => {
-    dispatch(toggleWishlist({
-      id: product.id,
-      productId: product.id,
-      product: productToCartProduct(product),
-      addedAt: new Date().toISOString(),
-    }));
+    dispatch(
+      toggleWishlist({
+        id: product.id,
+        productId: product.id,
+        product: productToCartProduct(product),
+        addedAt: new Date().toISOString(),
+      })
+    );
     toast.success(isInWishlist ? "Removed from wishlist" : "Added to wishlist");
   };
 
@@ -146,109 +165,133 @@ function ProductCard({
       whileHover={{ y: -8, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="product-card group relative bg-white border border-cream-100 hover:border-gold-300 transition-colors shadow-sm hover:shadow-[0_20px_40px_-10px_rgba(120,20,30,0.15)] rounded-2xl overflow-hidden"
+      className="product-card group"
     >
-      <div className="product-card-image bg-cream-50 aspect-square relative flex items-center justify-center overflow-hidden">
-        {/* Animated background on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-        
-        <motion.div 
-          whileHover={{ scale: 1.15, rotate: 5 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full border-2 border-gold-400 bg-white shadow-lg text-3xl font-bold tracking-widest text-maroon-700 font-primary"
-        >
-          {product.mark}
-        </motion.div>
+      <Card className="rounded-3xl border border-cream-100 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden">
+        <CardActionArea component={Link} href={`/products/${product.slug}`} className="group">
+          <Box className="relative bg-cream-50 aspect-square flex items-center justify-center overflow-hidden">
+            <Box className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <motion.div
+              whileHover={{ scale: 1.15, rotate: 5 }}
+              transition={{ duration: 0.5 }}
+              className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full border-2 border-gold-400 bg-white shadow-lg text-3xl font-bold tracking-widest text-maroon-700 font-primary"
+            >
+              {product.mark}
+            </motion.div>
 
-        <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-20">
-          {product.isBestSeller && (
-            <span className="badge badge-gold text-[10px] uppercase tracking-wider font-bold shadow-sm">Best Seller</span>
-          )}
-          {product.isNew && (
-            <span className="badge badge-maroon text-[10px] uppercase tracking-wider font-bold shadow-sm">New</span>
-          )}
-        </div>
+            <Box className="absolute top-3 left-3 flex flex-col gap-1.5 z-20">
+              {product.isBestSeller && (
+                <Chip
+                  label="Best Seller"
+                  size="small"
+                  className="bg-gold-100 text-gold-700 font-bold"
+                />
+              )}
+              {product.isNew && (
+                <Chip
+                  label="New"
+                  size="small"
+                  className="bg-maroon-100 text-maroon-700 font-bold"
+                />
+              )}
+            </Box>
 
-        {discount > 0 && (
-          <div className="absolute top-3 right-3 bg-maroon-900 text-white text-[10px] font-black px-2 py-1 rounded-md shadow-sm z-20 border border-maroon-800">
-            -{discount}%
-          </div>
-        )}
+            {discount > 0 && (
+              <Box className="absolute top-3 right-3 rounded-md bg-maroon-900 px-2 py-1 text-[10px] font-black text-white shadow-sm border border-maroon-800 z-20">
+                -{discount}%
+              </Box>
+            )}
 
-        <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
-        <motion.button
-          whileHover={{ scale: 1.15 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={handleWishlist}
-          className="w-9 h-9 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon-400 hover:text-maroon-700 transition-all duration-300 border border-cream-100"
-          aria-label="Add to wishlist"
-        >
-          <Heart size={16} strokeWidth={2.5} className={isInWishlist ? "fill-maroon-600 text-maroon-600" : ""} />
-        </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => onQuickView(product)}
-            className="w-9 h-9 rounded-full bg-maroon-800 shadow-lg flex items-center justify-center text-white transition-all duration-300 border border-maroon-700"
-            aria-label="Quick view"
+            <IconButton
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onQuickView(product);
+              }}
+              className="absolute bottom-4 right-4 z-20 rounded-full bg-white shadow-lg text-maroon-700 hover:bg-cream-100"
+              aria-label="Quick view"
+              size="small"
+            >
+              <Eye size={16} />
+            </IconButton>
+          </Box>
+
+          <CardContent className="p-5">
+            <Typography
+              component="h3"
+              variant="h6"
+              className="text-maroon-900 font-bold mb-1 group-hover:text-gold-600 transition-colors line-clamp-1"
+              sx={{ fontFamily: "var(--font-primary)" }}
+            >
+              {product.name}
+            </Typography>
+
+            <Typography className="text-maroon-700/60 text-[11px] font-semibold mb-3">
+              {product.weight}
+            </Typography>
+
+            <Box className="flex items-center gap-1.5 mb-3">
+              <Star size={13} fill="currentColor" className="text-gold-500" />
+              <Typography variant="caption" className="text-maroon-800 font-bold">
+                {product.rating}
+              </Typography>
+              <Typography variant="caption" className="text-maroon-700/50">
+                ({product.reviewCount} reviews)
+              </Typography>
+            </Box>
+
+            <Box className="flex items-center gap-2.5 mb-4">
+              <Typography className="text-maroon-900 font-black text-xl">
+                {formatPrice(product.price)}
+              </Typography>
+              {product.originalPrice > product.price && (
+                <Typography className="text-maroon-700/40 text-[11px] font-bold line-through">
+                  {formatPrice(product.originalPrice)}
+                </Typography>
+              )}
+            </Box>
+          </CardContent>
+        </CardActionArea>
+
+        <CardActions className="p-5 pt-0 gap-2 grid grid-cols-[1fr_auto_auto_auto]">
+          <Button
+            onClick={handleAddToCart}
+            variant="contained"
+            color="secondary"
+            size="small"
+            className="w-full rounded-xl bg-maroon-800 hover:bg-maroon-700 text-white"
           >
-            <Eye size={16} strokeWidth={2.5} />
-          </motion.button>
-        </div>
-      </div>
-
-      <div className="p-5">
-        <Link href={`/products/${product.slug}`}>
-          <h3
-            className="text-maroon-900 font-bold text-base sm:text-lg mb-1 group-hover:text-gold-600 transition-colors line-clamp-1"
-            style={{ fontFamily: "var(--font-primary)" }}
-          >
-            {product.name}
-          </h3>
-        </Link>
-
-        <p className="text-maroon-700/60 text-[11px] font-semibold mb-3">{product.weight}</p>
-
-        <div className="flex items-center gap-1.5 mb-3">
-          <Star size={13} fill="currentColor" className="text-gold-500" />
-          <span className="text-xs font-bold text-maroon-800">{product.rating}</span>
-          <span className="text-[10px] text-maroon-700/50">({product.reviewCount} reviews)</span>
-        </div>
-
-        <div className="flex items-center gap-2.5 mb-4">
-          <span className="text-maroon-900 font-black text-xl">{formatPrice(product.price)}</span>
-          {product.originalPrice > product.price && (
-            <span className="text-maroon-700/40 text-[11px] font-bold line-through">
-              {formatPrice(product.originalPrice)}
-            </span>
-          )}
-        </div>
-
-        <div className="grid grid-cols-[1fr_auto_auto] gap-2">
-        <motion.button
-          whileTap={{ scale: 0.98 }}
-          onClick={handleAddToCart}
-          className="w-full bg-maroon-800 hover:bg-maroon-700 text-white font-bold text-[11px] uppercase tracking-widest py-3 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-md hover:shadow-lg"
-        >
-          <ShoppingCart size={14} />
-          Add to Cart
-        </motion.button>
-          <button
+            <ShoppingCart size={14} />
+            Add to Cart
+          </Button>
+          <IconButton
             onClick={shareProduct}
-            className="w-11 h-11 rounded-lg border border-cream-200 text-maroon-600 hover:border-gold-300 hover:text-gold-700 transition-colors flex items-center justify-center"
+            color="primary"
+            className="border border-cream-200 text-maroon-600 hover:border-gold-300 hover:text-gold-700"
             aria-label="Share product"
           >
             <Share2 size={15} />
-          </button>
-          <button
+          </IconButton>
+          <IconButton
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleWishlist();
+            }}
+            className={isInWishlist ? "border border-gold-400 bg-gold-50 text-gold-700" : "border border-cream-200 text-maroon-600 hover:border-gold-300 hover:text-gold-700"}
+            aria-label={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
+          >
+            <Heart size={15} />
+          </IconButton>
+          <IconButton
             onClick={() => onCompare(product)}
-            className={`w-11 h-11 rounded-lg border transition-colors flex items-center justify-center ${isCompared ? "border-gold-400 bg-gold-50 text-gold-700" : "border-cream-200 text-maroon-600 hover:border-gold-300 hover:text-gold-700"}`}
+            className={isCompared ? "border border-gold-400 bg-gold-50 text-gold-700" : "border border-cream-200 text-maroon-600 hover:border-gold-300 hover:text-gold-700"}
             aria-label="Compare product"
           >
             {isCompared ? <Check size={15} /> : <Scale size={15} />}
-          </button>
-        </div>
-      </div>
+          </IconButton>
+        </CardActions>
+      </Card>
     </motion.div>
   );
 }
@@ -268,16 +311,18 @@ function QuickViewModal({
   const variant = cartProduct.variants[0];
 
   const handleAddToCart = () => {
-    dispatch(addItem({
-      id: `${product.id}-${variant.id}`,
-      productId: product.id,
-      product: cartProduct,
-      variantId: variant.id,
-      variant,
-      quantity: 1,
-      price: product.price,
-      totalPrice: product.price,
-    }));
+    dispatch(
+      addItem({
+        id: `${product.id}-${variant.id}`,
+        productId: product.id,
+        product: cartProduct,
+        variantId: variant.id,
+        variant,
+        quantity: 1,
+        price: product.price,
+        totalPrice: product.price,
+      })
+    );
     toast.success(`${product.name} added to basket`);
     onClose();
   };
@@ -288,62 +333,73 @@ function QuickViewModal({
   };
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[120] bg-maroon-950/50 backdrop-blur-sm flex items-center justify-center p-4"
-        onClick={onClose}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 24, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 16, scale: 0.96 }}
-          transition={{ duration: 0.22 }}
-          className="bg-white rounded-2xl border border-cream-200 shadow-2xl max-w-3xl w-full overflow-hidden"
-          onClick={(e) => e.stopPropagation()}
+    <Dialog open={Boolean(product)} onClose={onClose} maxWidth="md" fullWidth>
+      <DialogContent className="p-0 overflow-hidden">
+        <Box className="grid md:grid-cols-[0.9fr_1.1fr]">
+          <Box className="bg-cream-50 min-h-[260px] flex items-center justify-center p-8">
+            <Box className="flex h-36 w-36 items-center justify-center rounded-full border-2 border-gold-400 bg-white shadow-lg text-4xl font-bold tracking-widest text-maroon-700 font-primary">
+              {product.mark}
+            </Box>
+          </Box>
+          <Box className="p-6 sm:p-8 relative">
+            <IconButton
+              onClick={onClose}
+              className="absolute right-4 top-4 bg-cream-50 text-maroon-700 hover:bg-maroon-50"
+              aria-label="Close quick view"
+            >
+              <X size={18} />
+            </IconButton>
+            <Chip label="Quick View" className="mb-4 rounded-full bg-gold-100 text-gold-800 font-bold" />
+            <Typography variant="h4" className="text-maroon-900 font-bold font-primary mb-2">
+              {product.name}
+            </Typography>
+            <Typography className="text-sm text-maroon-700/70 leading-relaxed mb-4">
+              {product.description}
+            </Typography>
+            <Stack direction="row" spacing={2} alignItems="center" className="mb-5">
+              <Star size={15} fill="currentColor" className="text-gold-500" />
+              <Typography variant="body2" className="font-bold text-maroon-800">
+                {product.rating}
+              </Typography>
+              <Typography variant="caption" className="text-maroon-500">
+                ({product.reviewCount} reviews)
+              </Typography>
+              <Typography variant="caption" className="text-maroon-400">
+                • {product.weight}
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={3} alignItems="flex-end" className="mb-6">
+              <Typography className="text-3xl font-black text-maroon-900">
+                {formatPrice(product.price)}
+              </Typography>
+              <Typography className="text-sm line-through text-maroon-400">
+                {formatPrice(product.originalPrice)}
+              </Typography>
+            </Stack>
+          </Box>
+        </Box>
+      </DialogContent>
+      <DialogActions className="px-6 pb-6 pt-3">
+        <Button
+          onClick={copyLink}
+          variant="outlined"
+          color="secondary"
+          startIcon={<Copy size={16} />}
+          className="rounded-xl"
         >
-          <div className="grid md:grid-cols-[0.9fr_1.1fr]">
-            <div className="bg-cream-50 min-h-[260px] flex items-center justify-center p-8">
-              <div className="flex h-36 w-36 items-center justify-center rounded-full border-2 border-gold-400 bg-white shadow-lg text-4xl font-bold tracking-widest text-maroon-700 font-primary">
-                {product.mark}
-              </div>
-            </div>
-            <div className="p-6 sm:p-8 relative">
-              <button
-                onClick={onClose}
-                className="absolute right-4 top-4 w-9 h-9 rounded-full bg-cream-50 text-maroon-700 hover:bg-maroon-50 flex items-center justify-center"
-                aria-label="Close quick view"
-              >
-                <X size={18} />
-              </button>
-              <span className="badge badge-gold mb-4">Quick View</span>
-              <h3 className="text-2xl font-bold text-maroon-900 font-primary mb-2">{product.name}</h3>
-              <p className="text-sm text-maroon-700/70 leading-relaxed mb-4">{product.description}</p>
-              <div className="flex items-center gap-2 mb-5">
-                <Star size={15} fill="currentColor" className="text-gold-500" />
-                <span className="text-sm font-bold text-maroon-800">{product.rating}</span>
-                <span className="text-xs text-maroon-500">({product.reviewCount} reviews)</span>
-                <span className="text-xs text-maroon-400">• {product.weight}</span>
-              </div>
-              <div className="flex items-end gap-3 mb-6">
-                <span className="text-3xl font-black text-maroon-900">{formatPrice(product.price)}</span>
-                <span className="text-sm line-through text-maroon-400 mb-1">{formatPrice(product.originalPrice)}</span>
-              </div>
-              <div className="grid sm:grid-cols-[1fr_auto] gap-3">
-                <button onClick={handleAddToCart} className="btn-primary py-4 rounded-xl">
-                  <ShoppingCart size={16} /> Add To Cart
-                </button>
-                <button onClick={copyLink} className="btn-outline py-4 rounded-xl">
-                  <Copy size={16} /> Copy Link
-                </button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+          Copy Link
+        </Button>
+        <Button
+          onClick={handleAddToCart}
+          variant="contained"
+          color="secondary"
+          startIcon={<ShoppingCart size={16} />}
+          className="rounded-xl"
+        >
+          Add To Cart
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 }
 
@@ -439,10 +495,16 @@ export function FeaturedProducts() {
           transition={{ delay: 0.4 }}
           className="text-center mt-12"
         >
-          <Link href="/shop" className="bg-white border border-cream-200 text-maroon-800 font-bold text-sm tracking-wide px-8 py-3.5 rounded-xl inline-flex items-center gap-2 group hover:border-gold-400 hover:shadow-lg transition-all">
+          <Button
+            component={Link}
+            href="/shop"
+            variant="outlined"
+            color="secondary"
+            className="inline-flex rounded-full border-2 border-gold-300 px-8 py-3 text-sm font-semibold text-maroon-800"
+            endIcon={<ArrowRight size={16} className="text-gold-500" />}
+          >
             View All Products
-            <ArrowRight size={16} className="text-gold-500 group-hover:translate-x-1.5 transition-transform duration-300" />
-          </Link>
+          </Button>
         </motion.div>
       </div>
       <AnimatePresence>

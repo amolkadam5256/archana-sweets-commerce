@@ -1,23 +1,24 @@
 "use client";
 
+import type { SVGProps } from "react";
 import Link from "next/link";
 import { BRAND, NAV_LINKS, PRODUCT_CATEGORIES } from "@/constants";
 import { getWhatsAppLink } from "@/utils";
-import { Phone, Mail, MapPin, Heart, ArrowRight, ShieldCheck, Award, Truck, Star, Sparkles, CheckCircle, PackageOpen } from "lucide-react";
+import { Phone, Mail, MapPin, Heart, ArrowRight, Award, Truck, Star, Sparkles, CheckCircle, PackageOpen } from "lucide-react";
 
 // Social Icons as inline SVGs for reliability
 const SocialIcons = {
-  Instagram: (props: any) => (
+  Instagram: (props: SVGProps<SVGSVGElement>) => (
     <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
     </svg>
   ),
-  Facebook: (props: any) => (
+  Facebook: (props: SVGProps<SVGSVGElement>) => (
     <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
     </svg>
   ),
-  Youtube: (props: any) => (
+  Youtube: (props: SVGProps<SVGSVGElement>) => (
     <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z" /><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
     </svg>
@@ -51,7 +52,7 @@ export function Footer() {
       <div className="relative border-b border-cream-200 dark:border-gray-800 bg-cream-50 dark:bg-[#111111]">
         <div className="container-custom py-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {trustIndicators.map((indicator, idx) => (
+            {trustIndicators.map((indicator) => (
               <div key={indicator.title} className="flex flex-col items-center justify-center text-center p-6 bg-white dark:bg-black rounded-3xl border border-cream-200 dark:border-gray-800 shadow-sm hover:shadow-md hover:border-gold-300 transition-all duration-300 group">
                 <div className="w-14 h-14 rounded-full bg-cream-50 dark:bg-gray-900 border border-cream-200 dark:border-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <indicator.icon size={24} className="text-gold-500 group-hover:text-gold-600" strokeWidth={1.5} />

@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Gift, Leaf, MessageCircle, PackageCheck, ShoppingBag, Star, Truck } from "lucide-react";
 import { getWhatsAppLink } from "@/utils";
-import { BRAND } from "@/constants";
+import { BRAND, PRODUCT_CATEGORIES } from "@/constants";
+import { Box, Button, Card, CardContent, Chip, Stack, Typography } from "@mui/material";
 
 export function HeroSection() {
   const whatsappLink = getWhatsAppLink(
@@ -14,163 +15,205 @@ export function HeroSection() {
 
   const trustSignals = [
     { icon: Leaf, text: "100% Pure Ghee" },
-    { icon: Truck, text: "Free Delivery INR 499+" },
-    { icon: PackageCheck, text: "Fresh Daily" },
-    { icon: Star, text: "10,000+ Happy Customers" },
+    { icon: Truck, text: "Fresh Daily" },
+    { icon: PackageCheck, text: "Free delivery INR 499+" },
+    { icon: Star, text: "10,000+ orders delivered" },
   ];
 
-  const orbitItems = [
-    { mark: "BL", label: "Besan Laddu", angle: 0 },
-    { mark: "DF", label: "Dry Fruit", angle: 72 },
-    { mark: "CL", label: "Coconut", angle: 144 },
-    { mark: "BF", label: "Barfi", angle: 216 },
-    { mark: "GB", label: "Gift Box", angle: 288 },
-  ];
+  const shortcutCategories = PRODUCT_CATEGORIES.slice(0, 5);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-warm">
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+    <Box component="section" className="relative overflow-hidden bg-amber-50 text-slate-950">
+      <Box className="container-custom relative z-10 pt-8 pb-16 sm:pt-12 sm:pb-20">
+        <Box className="flex flex-col gap-10 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
+          <Box className="max-w-2xl">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 mb-6"
+              transition={{ duration: 0.45 }}
+              className="flex flex-wrap items-center gap-3"
             >
-              <span className="badge badge-gold">
-                <Star size={10} fill="currentColor" className="mr-1" />
-                Pune&apos;s #1 Homemade Sweets
-              </span>
+              <Chip
+                label="Trusted luxury sweets from Pune"
+                icon={<Star size={14} className="text-gold-500" />}
+                variant="filled"
+                color="secondary"
+                className="rounded-full bg-white/90 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-700"
+              />
+              <Typography component="span" className="text-slate-600 text-sm">
+                Pure ghee, fresh daily, handcrafted with love
+              </Typography>
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-maroon-900 mb-4 leading-tight text-2xl md:text-3xl lg:text-4xl font-bold font-primary"
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Crafted with{" "}
-              <span className="text-gradient-gold">Mother&apos;s</span>
-              <br />
-              <span className="text-gradient-maroon">Pure Love</span>
-            </motion.h1>
+              <Typography component="h1" variant="h2" className="mt-6 font-bold tracking-tight leading-tight">
+                Premium Indian sweets,
+                <Box component="span" className="block text-gold-500">handcrafted fresh</Box>
+                <Box component="span" className="block text-slate-900">with a mother&apos;s love.</Box>
+              </Typography>
+            </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-cream-900 text-xs leading-relaxed mb-8 max-w-lg"
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Authentic homemade Indian sweets made fresh daily. Pure ingredients, timeless recipes.
-            </motion.p>
+              <Typography className="mt-5 max-w-xl text-sm leading-7 text-slate-700">
+                Discover made-to-order laddus, barfis, modaks and festive gift boxes that feel
+                luxurious, authentic and perfect for special moments in Pune.
+              </Typography>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-4 mb-8 text-sm"
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-8"
             >
-              {trustSignals.map((item) => (
-                <div
-                  key={item.text}
-                  className="flex items-center gap-1.5 text-maroon-700 font-medium"
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={3}>
+                <Button
+                  component={Link}
+                  href="/shop"
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  className="rounded-full px-8 gap-2"
+                  endIcon={<ArrowRight size={18} />}
                 >
-                  <item.icon size={15} className="text-gold-600" />
-                  <span>{item.text}</span>
-                </div>
-              ))}
+                  <ShoppingBag size={18} />
+                  Shop premium sweets
+                </Button>
+                <Button
+                  component="a"
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outlined"
+                  color="secondary"
+                  size="large"
+                  className="rounded-full border-slate-300 bg-white text-slate-950 px-8 gap-2"
+                >
+                  <MessageCircle size={18} />
+                  Order on WhatsApp
+                </Button>
+              </Stack>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-3"
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-8"
             >
-              <Link href="/shop" className="btn-primary group">
-                <ShoppingBag size={16} />
-                Shop Now
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-maroon-600 bg-white text-maroon-700 hover:bg-maroon-600 hover:text-white font-semibold transition-all"
-              >
-                <MessageCircle size={18} />
-                Order on WhatsApp
-              </a>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={3} className="grid sm:grid-cols-2 gap-3">
+                {trustSignals.map((item) => (
+                  <Box
+                    key={item.text}
+                    className="flex items-center gap-3 rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm"
+                  >
+                    <item.icon size={18} className="text-gold-500" />
+                    <Typography>{item.text}</Typography>
+                  </Box>
+                ))}
+              </Stack>
             </motion.div>
-          </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-8"
+            >
+              <Typography className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                Shop by category
+              </Typography>
+              <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap" }} className="mt-3">
+                {shortcutCategories.map((cat) => (
+                  <Button
+                    key={cat.id}
+                    component={Link}
+                    href={`/categories/${cat.slug}`}
+                    variant="outlined"
+                    color="secondary"
+                    size="small"
+                    className="rounded-full border-slate-200 bg-white px-4 text-slate-950"
+                  >
+                    <Box component="span" className="h-2.5 w-2.5 rounded-full bg-gold-300" />
+                    {cat.name}
+                  </Button>
+                ))}
+              </Stack>
+            </motion.div>
+          </Box>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative hidden lg:block"
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative w-[460px] h-[460px] mx-auto">
-              <div
-                className="absolute inset-0 rounded-full border-2 border-gold-300 opacity-70"
-                style={{ animation: "spin 20s linear infinite" }}
-              />
-              <div className="absolute inset-8 rounded-full border border-maroon-100 bg-white shadow-xl" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-maroon-600 text-white">
-                    <Gift size={42} />
-                  </div>
-                  <div className="text-gradient-maroon font-primary font-bold text-2xl">
-                    Archana Sweets
-                  </div>
-                  <div className="text-gold-600 text-sm mt-1 tracking-widest uppercase">
-                    Made With Love
-                  </div>
-                </div>
-              </div>
-              {orbitItems.map((item, i) => {
-                const rad = (item.angle * Math.PI) / 180;
-                const r = 190;
-                const x = 230 + r * Math.cos(rad);
-                const y = 230 + r * Math.sin(rad);
-                return (
-                  <motion.div
-                    key={item.label}
-                    className="absolute glass rounded-xl px-3 py-2 text-xs font-semibold text-maroon-800 flex items-center gap-1.5 shadow-md"
-                    style={{ left: x - 48, top: y - 20 }}
-                    animate={{ y: [-4, 4, -4] }}
-                    transition={{ duration: 2.5 + i * 0.4, repeat: Infinity, ease: "easeInOut" }}
+            <Card className="relative overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-premium sm:p-6">
+              <CardContent className="relative py-6 px-5 sm:px-6">
+                <Box className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/90 to-transparent" />
+                <Box className="relative grid gap-4 sm:grid-cols-2">
+                  <Box className="rounded-[28px] border border-slate-200 bg-amber-50 p-5 text-center">
+                    <Box className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-amber-100 text-gold-600 shadow-lg">
+                      <Gift size={32} />
+                    </Box>
+                    <Typography className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-700">
+                      Archana Signature
+                    </Typography>
+                    <Typography className="mt-3 text-sm leading-6 text-slate-700">
+                      Rich Besan Laddu in premium gift packaging, handcrafted for festivals.
+                    </Typography>
+                  </Box>
+
+                  <Box className="rounded-[28px] border border-slate-200 bg-amber-50 p-5 text-center">
+                    <Box className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-amber-100 text-gold-600 shadow-lg">
+                      <PackageCheck size={32} />
+                    </Box>
+                    <Typography className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-700">
+                      Fresh Daily
+                    </Typography>
+                    <Typography className="mt-3 text-sm leading-6 text-slate-700">
+                      Batches made each morning and shipped on the same day for the purest taste.
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Box className="flex-1 rounded-[28px] bg-amber-100 px-5 py-4 text-sm text-slate-900 shadow-inner">
+                    <Typography className="text-xs uppercase tracking-[0.2em] text-slate-600">
+                      Top collection
+                    </Typography>
+                    <Typography className="mt-2 text-lg font-bold text-slate-950">
+                      Gift Boxes & Festival Sets
+                    </Typography>
+                  </Box>
+                  <Button
+                    component="a"
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="contained"
+                    color="secondary"
+                    className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-4 text-sm font-semibold text-slate-950"
                   >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gold-500 text-[10px] text-black">
-                      {item.mark}
-                    </span>
-                    <span>{item.label}</span>
-                  </motion.div>
-                );
-              })}
-            </div>
+                    <MessageCircle size={16} /> Quick WhatsApp Order
+                  </Button>
+                </Box>
+              </CardContent>
+            </Card>
           </motion.div>
-        </div>
-      </div>
+        </Box>
+      </Box>
 
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path
-            d="M0 60L48 50C96 40 192 20 288 18.3C384 16.7 480 33.3 576 38.3C672 43.3 768 36.7 864 30C960 23.3 1056 16.7 1152 18.3C1248 20 1344 30 1392 35L1440 40V60H0Z"
-            fill="white"
-            fillOpacity="0.5"
-          />
-        </svg>
-      </div>
-
-      <style jsx>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-    </section>
+      <Box className="absolute inset-x-0 bottom-0 pointer-events-none">
+        <Box className="h-28 bg-gradient-to-t from-amber-50 via-amber-50/70 to-transparent" />
+      </Box>
+    </Box>
   );
 }

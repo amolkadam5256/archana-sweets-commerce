@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/features/products/components/HeroSection";
 import { FeaturedCategories } from "@/features/categories/components/FeaturedCategories";
+import { CategoryPreviewSection } from "@/features/categories/components/CategoryPreviewSection";
+import { ProductOverviewSection } from "@/features/products/components/ProductOverviewSection";
 import { FeaturedProducts } from "@/features/products/components/FeaturedProducts";
 import { WhyChooseUs } from "@/components/shared/WhyChooseUs";
 import { FestivalSection } from "@/features/products/components/FestivalSection";
@@ -19,6 +21,8 @@ export default function HomePage() {
     <>
       <HeroSection />
       <FeaturedCategories />
+      <CategoryPreviewSection />
+      <ProductOverviewSection />
       <FeaturedProducts />
       <WhyChooseUs />
       <FestivalSection />

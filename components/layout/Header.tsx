@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Gift, Heart, Menu, MessageCircle, Phone, Search, ShoppingCart, X, User, ChevronDown, MapPin, Star, Package, Bookmark, Home, LogOut, Settings, ClipboardList, Sparkles } from "lucide-react";
+import { Heart, Menu, MessageCircle, Phone, Search, ShoppingCart, X, User, ChevronDown, MapPin, Star, Home, LogOut, ClipboardList } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { toggleMobileMenu, closeMobileMenu, openCart, openSearch } from "@/store/slices/ui.slice";
 import { selectCartCount } from "@/features/cart/cart.slice";
 import { selectWishlistCount } from "@/features/wishlist/wishlist.slice";
-import { NAV_STRUCTURE, BRAND, ACCOUNT_LINKS } from "@/constants";
+import { NAV_STRUCTURE, BRAND } from "@/constants";
 import { getWhatsAppLink, cn } from "@/utils";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
@@ -96,7 +96,7 @@ export function Header() {
 
           {/* Left Side: One-at-a-time scrolling offer — gapless, hover to pause */}
           <div
-            className="flex flex-1 overflow-hidden mr-0 sm:mr-6 items-center border-r border-white/20 pr-0 sm:pr-6 h-6 cursor-pointer"
+            className="flex flex-1 min-w-0 overflow-hidden mr-0 sm:mr-6 items-center sm:border-r border-white/20 pr-0 sm:pr-6 h-6 cursor-pointer"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             title="Hover to pause"
@@ -109,7 +109,7 @@ export function Header() {
             `}</style>
             <div
               ref={slideRef}
-              className="inline-flex items-center whitespace-nowrap text-[10px] font-semibold tracking-[0.25em] uppercase text-white"
+              className="inline-flex min-w-0 items-center whitespace-nowrap text-[10px] font-semibold tracking-[0.25em] uppercase text-white"
             >
               {/* Initial content rendered server-side; JS takes over on mount */}
               ✨  FESTIVE SPECIALS LIVE — Fresh sweets delivered across Pune!
@@ -117,7 +117,7 @@ export function Header() {
           </div>
 
           {/* Right Section */}
-          <div className="flex flex-wrap items-center justify-end gap-3 shrink-0 z-10 pl-0 sm:pl-6">
+          <div className="flex flex-wrap items-center justify-end gap-3 shrink-0 z-10 pl-0 sm:pl-6 min-w-0">
             <a href="tel:+917709266280" className="flex items-center gap-1.5 text-white hover:text-[#ffe7da] transition-colors whitespace-nowrap">
               <Phone size={13} className="text-[#ffe7da]" /> +91 77092 66280
             </a>
@@ -386,55 +386,60 @@ export function Header() {
       </header>
 
       {/* Mobile Bottom Navigation Bar (Hidden on Desktop) */}
-      <nav className="fixed inset-x-4 bottom-4 z-50 lg:hidden mx-auto max-w-4xl bg-slate-950/95 border border-white/10 backdrop-blur-xl shadow-[0_20px_80px_-40px_rgba(0,0,0,0.55)] rounded-[28px] px-3 py-3 sm:inset-x-5 sm:bottom-5">
-        <div className="flex items-center justify-between gap-2">
-          {[
-            { label: "Home", href: "/", icon: <Home size={20} /> },
-            { label: "Shop", href: "/categories", icon: <Gift size={20} /> },
-            { label: "Search", action: () => dispatch(openSearch()), icon: <Search size={22} /> },
-            { label: "Wishlist", href: "/dashboard/wishlist", icon: <Heart size={20} /> },
-            { label: "Account", href: isAuthenticated ? "/dashboard" : "/login", icon: <User size={20} /> },
-          ].map((item) => {
-            const isActive = item.href ? pathname === item.href : false;
-            const baseClasses = "flex items-center justify-center text-white transition-all duration-200";
-            const activeClasses = "bg-white/10 ring-1 ring-white/20 shadow-[0_16px_40px_-28px_rgba(255,255,255,0.9)]";
-            const inactiveClasses = "text-white/70 hover:text-white hover:bg-white/10";
+      <motion.nav 
+        className="fixed inset-x-4 bottom-4 z-50 lg:hidden mx-auto max-w-md"
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex flex-col items-center gap-3">
+          {/* Favorites Label */}
+          <div className="text-center">
+            <span className="text-xs font-bold text-white/80 uppercase tracking-wider">Favorites</span>
+          </div>
 
-            return item.href ? (
-              <Link
-                key={item.label}
-                href={item.href}
-                aria-label={item.label}
-                className={cn(
-                  baseClasses,
-                  "flex-1 rounded-3xl p-2",
-                  isActive ? activeClasses : inactiveClasses
-                )}
-              >
-                <div className={cn(
-                  "flex items-center justify-center w-11 h-11 rounded-3xl border border-white/10",
-                  isActive ? "bg-white/10" : "bg-slate-900/60"
-                )}>{item.icon}</div>
-              </Link>
-            ) : (
-              <button
-                key={item.label}
-                onClick={item.action}
-                aria-label={item.label}
-                className={cn(
-                  baseClasses,
-                  "flex-1 rounded-3xl p-2",
-                  inactiveClasses
-                )}
-              >
-                <div className="flex items-center justify-center w-11 h-11 rounded-3xl border border-white/10 bg-slate-900/70 text-white transition-all hover:bg-white/10">
+          {/* Navigation Items Container */}
+          <div className="w-full bg-slate-950/98 border border-white/5 backdrop-blur-2xl rounded-[32px] shadow-2xl p-4 flex items-center justify-between gap-3">
+            {[
+              { label: "Home", href: "/", icon: <Home size={24} />, key: "home" },
+              { label: "Search", action: () => dispatch(openSearch()), icon: <Search size={24} />, key: "search" },
+              { label: "Favorites", href: "/dashboard/wishlist", icon: <Star size={24} fill="currentColor" />, key: "favorites" },
+              { label: "Wishlist", href: "/dashboard/wishlist", icon: <Heart size={24} />, key: "wishlist" },
+              { label: "Account", href: isAuthenticated ? "/dashboard" : "/login", icon: <User size={24} />, key: "account" },
+            ].map((item) => {
+              const isActive = item.href ? pathname === item.href : false;
+
+              return item.href ? (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  aria-label={item.label}
+                  className={cn(
+                    "flex items-center justify-center flex-1 w-12 h-12 rounded-2xl border-2 transition-all duration-300",
+                    isActive
+                      ? "bg-gold-500/20 border-gold-400 text-gold-400 shadow-lg shadow-gold-500/20"
+                      : "bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20"
+                  )}
+                >
                   {item.icon}
-                </div>
-              </button>
-            );
-          })}
+                </Link>
+              ) : (
+                <button
+                  key={item.key}
+                  onClick={item.action}
+                  aria-label={item.label}
+                  className={cn(
+                    "flex items-center justify-center flex-1 w-12 h-12 rounded-2xl border-2 transition-all duration-300",
+                    "bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20"
+                  )}
+                >
+                  {item.icon}
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>

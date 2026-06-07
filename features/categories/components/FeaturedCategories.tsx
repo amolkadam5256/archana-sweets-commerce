@@ -4,6 +4,14 @@ import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PRODUCT_CATEGORIES } from "@/constants";
+import {
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  Typography,
+} from "@mui/material";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -27,14 +35,13 @@ export function FeaturedCategories() {
           className="text-center mb-12"
         >
           <span className="badge badge-gold mb-3">Our Collection</span>
-          <h2 className="text-maroon-900 mb-3 text-2xl sm:text-3xl font-bold font-primary">
-            Premium Sweet{" "}
-            <span className="text-gradient-gold">Categories</span>
-          </h2>
-          <p className="text-cream-900 text-xs max-w-2xl mx-auto">
+          <Typography component="h2" variant="h3" className="text-maroon-900 mb-3 font-bold font-primary">
+            Premium Sweet <span className="text-gradient-gold">Categories</span>
+          </Typography>
+          <Typography variant="body2" className="text-cream-900 text-xs max-w-2xl mx-auto">
             From classic Besan Laddus to exclusive Corporate Gift Hampers - every category crafted
             with the finest ingredients and a mother&apos;s love.
-          </p>
+          </Typography>
           <hr className="divider-gold w-24 mx-auto mt-4" />
         </motion.div>
 
@@ -47,17 +54,21 @@ export function FeaturedCategories() {
         >
           {PRODUCT_CATEGORIES.map((cat) => (
             <motion.div key={cat.id} variants={itemVariants}>
-              <Link href={`/categories/${cat.slug}`} className="group block">
-                <div className="relative bg-cream-50 border border-cream-200 rounded-2xl p-6 text-center hover:border-gold-400 hover:bg-gold-50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-center min-h-[140px]">
-                  <h3
-                    className="text-maroon-800 font-semibold text-sm leading-tight group-hover:text-maroon-600 transition-colors"
-                    style={{ fontFamily: "var(--font-secondary)" }}
-                  >
-                    {cat.name}
-                  </h3>
-                  <div className="h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mt-3 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                </div>
-              </Link>
+              <Card className="rounded-[28px] border border-cream-200 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <CardActionArea component="a" href={`/categories/${cat.slug}`} className="rounded-[28px]">
+                  <CardContent className="p-6 text-center bg-cream-50">
+                    <Typography
+                      variant="subtitle1"
+                      component="h3"
+                      className="text-maroon-800 font-semibold leading-tight"
+                      sx={{ fontFamily: "var(--font-secondary)" }}
+                    >
+                      {cat.name}
+                    </Typography>
+                    <Box className="mx-auto mt-3 h-0.5 w-14 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
@@ -69,10 +80,16 @@ export function FeaturedCategories() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-10"
         >
-          <Link href="/categories" className="btn-outline group inline-flex">
+          <Button
+            component={Link}
+            href="/categories"
+            variant="outlined"
+            color="secondary"
+            endIcon={<ArrowRight size={16} />}
+            className="inline-flex rounded-full border-2 border-gold-300 px-6 py-3 text-sm font-semibold"
+          >
             View All Categories
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

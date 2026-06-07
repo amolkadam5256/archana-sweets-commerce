@@ -20,9 +20,13 @@ export function SearchOverlay() {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
-      setQuery("");
     }
   }, [isSearchOpen]);
+
+  const handleClose = () => {
+    setQuery("");
+    dispatch(closeSearch());
+  };
 
   const popularSearches = ["Besan Laddu", "Dry Fruit Laddu", "Modak", "Gift Boxes", "Diwali Special"];
 
@@ -49,7 +53,7 @@ export function SearchOverlay() {
               />
             </div>
             <button
-              onClick={() => dispatch(closeSearch())}
+              onClick={handleClose}
               className="p-3 rounded-full hover:bg-maroon-50 text-maroon-700 transition-all group"
             >
               <X size={28} className="group-hover:rotate-90 transition-transform duration-300" />
@@ -123,7 +127,7 @@ export function SearchOverlay() {
                   <div className="mt-12">
                     <Link
                       href={`/shop?q=${encodeURIComponent(query)}`}
-                      onClick={() => dispatch(closeSearch())}
+                      onClick={handleClose}
                       className="btn-primary"
                     >
                       View all products

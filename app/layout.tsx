@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { Providers } from "@/providers";
 
@@ -71,8 +72,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning data-theme="light">
       <body className="min-h-screen antialiased" suppressHydrationWarning>
         {/* Anti-FOUC: Inline script runs synchronously before first paint */}
-        <script
-          suppressHydrationWarning
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var s=localStorage.getItem('archana-theme');var t=s==='dark'||s==='light'?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
           }}

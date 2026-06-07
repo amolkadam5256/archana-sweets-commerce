@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, EyeOff, Mail, Lock, Phone, ArrowRight } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -28,6 +29,7 @@ type EmailForm = z.infer<typeof emailSchema>;
 type OtpForm = z.infer<typeof otpSchema>;
 
 export default function LoginPage() {
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const [mode, setMode] = useState<Mode>("email");
   const [showPassword, setShowPassword] = useState(false);
@@ -45,9 +47,10 @@ export default function LoginPage() {
       const res = await authService.login(data);
       dispatch(setCredentials({ user: res.data.user, tokens: res.data.tokens }));
       toast.success("Welcome back! 🎉");
-      window.location.href = "/";
-    } catch (err: any) {
-      toast.error(err?.response?.data?.detail || "Login failed. Please try again.");
+      router.push("/");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Login failed. Please try again.";
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -68,13 +71,16 @@ export default function LoginPage() {
   };
 
   const handleVerifyOtp = async () => {
-    if (otp.length !== 6) { toast.error("Enter 6-digit OTP"); return; }
+    if (otp.length !== 6) {
+      toast.error("Enter 6-digit OTP");
+      return;
+    }
     setIsLoading(true);
     try {
       const res = await authService.verifyOtp({ phone, otp });
       dispatch(setCredentials({ user: res.data.user, tokens: res.data.tokens }));
       toast.success("Logged in successfully! 🎉");
-      window.location.href = "/";
+      router.push("/");
     } catch {
       toast.error("Invalid OTP. Please try again.");
     } finally {
